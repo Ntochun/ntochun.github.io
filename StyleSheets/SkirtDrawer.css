@@ -12,9 +12,17 @@ input[type=range] {
     width: 255px;
     box-shadow: 0 0 2px #444444, inset 0 0 5px #444444;
 }
-input[type=number]:focus{
+
+input[type=number]:focus {
     border: 2px solid #508cfc;
 }
+
+.circle_color {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+}
+
 #draw {
     z-index: 15;
 }
@@ -22,6 +30,11 @@ input[type=number]:focus{
 #color {
     left: 974px;
     position: absolute;
+}
+
+#color_value{
+    width: 100px;
+    height: 35px;
 }
 
 #add {
