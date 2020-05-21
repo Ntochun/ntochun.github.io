@@ -23,11 +23,15 @@ input[type=number]:focus {
     border-radius: 20px;
 }
 
+#temp{
+    display: none;
+}
+
 #draw {
     z-index: 15;
 }
 
-#color {
+#picker_container {
     left: 974px;
     position: absolute;
 }

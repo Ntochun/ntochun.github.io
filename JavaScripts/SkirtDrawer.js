@@ -1,35 +1,28 @@
 let size = container.getBoundingClientRect();
 
-console.log(size);
-
 let size_d = draw.getBoundingClientRect();
 let ctd = draw.getContext("2d");
 
-let ctt = result.getContext("2d");
+let ctr = result.getContext("2d");
 
-
-let block_color = "red";
-
-function drawLine(context, y, c) {
-    context.beginPath();
-    context.strokeStyle = c;
-    context.lineWidth = 1;
-    context.moveTo(0, y);
-    context.lineTo(draw.width, y);
-    context.closePath();
-    context.stroke();
+function fillImgData(context,height,array) {
+    let imgData = context.createImageData(959,height);
+    for (let i=0;i<imgData.data.length;i++){
+        imgData.data[i] = array[0];
+        imgData.data[i+1] = array[1];
+        imgData.data[i+2] = array[2];
+        imgData.data[i+3] = 255;
+    }
+    return imgData;
 }
 
-function drawBlock(context, start, end, c) {
+function drawBlock(start, end) {
     let height = start - end;
-    if (height >= 0) {
-        for (let i = 0; i <= height; i++) {
-            drawLine(context, start - i, c);
-        }
-    } else {
-        for (let i = 0; i <= Math.abs(height); i++) {
-            drawLine(context, start + i, c);
-        }
+    let block = ctt.getImageData(0,0, 959, Math.abs(height));
+    if (height > 0){
+        ctr.putImageData(block,0, end);
+    }else {
+        ctr.putImageData(block,0, start);
     }
 }
 
@@ -39,19 +32,25 @@ draw.addEventListener("click", function (e) {
     let ox = (e.pageX || e.clientX) - size_d.x;
     let oy = (e.pageY || e.clientY) - size_d.y;
     let data = ctt.getImageData(ox, oy, 1, 1).data;
-    let c = "black";
-    if (data[3] === 0) {
-        c = "black";
-    } else {
-        c = "rgba(" + (255 - data[0]) + "," + (255 - data[1]) + "," + (255 - data[2]) + ",255)";
-    }
-    drawLine(ctd, oy, c);
+
     if (c_count === 0) {
         lineStart = oy;
         c_count = 1;
+    ctd.strokeStyle = "black";
+    if (data[3] === 0) {
+        ctd.strokeStyle = "black";
+    } else {
+        ctd.strokeStyle = "rgb("+ 255 - data[0]+ ","+255 - data[1]+","+255 - data[2]+")";
+    }
+    ctd.beginPath();
+    ctd.moveTo(0,oy);
+    ctd.lineTo(959, oy);
+    ctd.closePath();
+    ctd.stroke();
+
     } else {
         lineEnd = oy;
-        drawBlock(ctt, lineStart, lineEnd, block_color);
+        drawBlock(lineStart, lineEnd);
         c_count = 0;
         ctd.clearRect(0, 0, draw.width, draw.height);
     }
