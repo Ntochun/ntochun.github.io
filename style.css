@@ -1,5 +1,4 @@
-b
-ody{
+body{
   padding:100px 0;
   background-color:#c33;
 }
@@ -54,8 +53,6 @@ ody{
          -o-transform-origin: 100% 100%;
             transform-origin :100% 100%;
 }
-
-@keyframes heartbeat
 
 @keyframes heartbeat
 {
