@@ -8,8 +8,11 @@ body{
     width: 200px;
     height:100px;
     margin:0 auto;
+    padding-top:100px;
     color:#fff;
-    font-size:20px;
+    text-align:center;
+    font-size:30px;
+    font-weight:bold;
 }
 
 #heart {
