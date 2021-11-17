@@ -4,7 +4,7 @@ body{
 }
 
 #word {
-    position: relative;
+    position: absolote;
     width: 200px;
     height:100px;
     margin:0 auto;
