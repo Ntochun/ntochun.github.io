@@ -5,8 +5,9 @@ body{
 
 #word {
     position: relative;
-    margin:200px auto;
+    margin:0 auto;
     color:#fff;
+    font-size:20px;
 }
 
 #heart {
