@@ -5,6 +5,8 @@ body{
 
 #word {
     position: relative;
+    width: 200px;
+    height:100px;
     margin:0 auto;
     color:#fff;
     font-size:20px;
