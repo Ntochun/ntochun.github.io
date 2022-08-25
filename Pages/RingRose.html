@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ring Rose</title>
+    <link rel="stylesheet" href="../StyleSheets/RingRose.css">
+</head>
+<body>
+<div id="container">
+    <div class="row">
+        <div class="col-3 panel" style="height: 100%">
+            <div class="row title">
+                <span>管片设置</span>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <span>数量：</span>
+                </div>
+                <div class="col-4">
+                    <input id="segCount" type="number" value="10">
+                </div>
+                <div class="col-1">
+                    <div class="blank"></div>
+                </div>
+                <div class="col-4">
+                    <input id="changeSegCount" type="button" value="变更数量">
+                </div>
+            </div>
+            <div class="row">
+                <div id="segments"></div>
+            </div>
+            <div class="row">
+                <div class="blank"></div>
+            </div>
+            <div class="row title">
+                <span>油缸设置</span>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <span>数量：</span>
+                </div>
+                <div class="col-2">
+                    <input id="cylCount" type="number" value="28">
+                </div>
+                <div class="col-1">
+                    <div class="blank"></div>
+                </div>
+                <div class="col-3">
+                    <span>关键字：</span>
+                </div>
+                <div class="col-2">
+                    <input id="cylWord" type="text" value="U">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <span>起始编号：</span>
+                </div>
+                <div class="col-1">
+                    <input id="cylStart" type="number" value="1">
+                </div>
+                <div class="col-1">
+                    <div class="blank"></div>
+                </div>
+                <div class="col-4">
+                    <span>编号步长：</span>
+                </div>
+                <div class="col-1">
+                    <input id="cylStep" type="number" value="1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <span>起始油缸角度：</span>
+                </div>
+                <div class="col-4">
+                    <input id="cylAngle" type="number" value="0">
+                </div>
+            </div>
+            <div class="row">
+                <div class="blank"></div>
+            </div>
+            <div class="row">
+                <input style="height: 3em" id="startDraw" type="button" value="开始绘制">
+            </div>
+
+            <div class="row">
+                <div class="blank"></div>
+            </div>
+            <div class="row title">
+                <span>旋转</span>
+            </div>
+            <div class="row">
+                <div class="blank"></div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <span>外部环：</span>
+                </div>
+                <div class="col-3">
+                    <input id="ringOutL" type="button" value="逆时针旋转">
+                </div>
+                <div class="col-3">
+                    <input id="ringOutR" type="button" value="顺时针旋转">
+                </div>
+            </div>
+            <div class="row bottom_blank">
+                <div class="col-3">
+                    <span>内部环：</span>
+                </div>
+                <div class="col-3">
+                    <input id="ringInL" type="button" value="逆时针旋转">
+                </div>
+                <div class="col-3">
+                    <input id="ringInR" type="button" value="顺时针旋转">
+                </div>
+            </div>
+            <div class="row">
+                <div class="blank"></div>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                    <span>当前（外：内）：</span>
+                </div>
+                <div class="col-1" style="text-align: right">
+                    <span id="ringOutName">U1</span>
+                </div>
+                <div class="col-1" style="text-align: center">
+                    <span>:</span>
+                </div>
+                <div class="col-1">
+                    <span id="ringInName">U1</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <div id="canvasContainer">
+                <canvas id="canvas"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../JavaScripts/RingRose.js"></script>
+</body>
+</html>
